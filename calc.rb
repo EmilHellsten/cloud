@@ -9,13 +9,13 @@ end
 def operator_to_message(op)
   case op
   when '1'
-  'Adding'
-    when '2'
-  'Subtracting'
-    when '3'
-  'Multiplying'
-    when '4'
-  'Dividing'
+    'Adding'
+  when '2'
+    'Subtracting'
+  when '3'
+    'Multiplying'
+  when '4'
+    'Dividing'
   end
 end
 
@@ -26,7 +26,7 @@ loop do
 
   if name.empty?
     prompt("That doesnt look valid!")
-    else
+  else
       break
   end
 end
