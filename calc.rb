@@ -8,7 +8,7 @@ end
 
 def operator_to_message(op)
   case op
-    when '1'
+  when '1'
   'Adding'
     when '2'
   'Subtracting'
