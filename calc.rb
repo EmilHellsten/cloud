@@ -27,7 +27,7 @@ loop do
   if name.empty?
     prompt("That doesnt look valid!")
   else
-      break
+    break
   end
 end
 
@@ -36,27 +36,27 @@ prompt("Hi, #{name}.")
 loop do
   number1 = ''
   loop do
-    prompt ("Please input a number.")
+    prompt("Please input a number.")
     number1 = gets.chomp
-  
+
     if valid_number?(number1)
       break
     else
-      prompt ("Hmm... that doesnt look like a valid input!")
+      prompt("Hmm... that doesnt look like a valid input!")
     end
   end
-  
+
   number2 = ''
     loop do
-      prompt("Please input another number.")
+    prompt("Please input another number.")
       number2 = gets.chomp
-  
+
       if valid_number?(number2)
         break
       else
-        prompt ("Hmm... that doesnt look like a valid input!")
+        prompt("Hmm... that doesnt look like a valid input!")
+      end
     end
-  end
   operator_prompt = <<-MSG
   Input 1 for addition.
   Input 2 for subtraction.
