@@ -1,7 +1,3 @@
-# formula: monthly_payment = loan_amount * (monthly_interest / (1 - (1 + monthly_interest)**(-loan_duration_months)))
-
-# gets x3 (total loan amount , interest/month and duration in months)
-
 def prompt(message)
   puts("=> #{message}")
 end
@@ -35,7 +31,7 @@ loop do
       prompt("Please enter the total loan amount as an integer.")
       loan_amount = gets.chomp #.to_i?
 
-      if loan_amount.empty? || amount.to_f < 0
+      if loan_amount.empty? || loan_amount.to_f < 0
       prompt("Hmm... that doesnt look like a valid input! Pls enter a positive number")
     else
       break
@@ -57,10 +53,10 @@ loop do
 
 # loan duration in months
     loop do
-      prompt("Please enter the length of the loan in months.")
+      prompt("Please enter the length of the loan in years.")
       loan_duration_months = gets.chomp # to_i ? tää pitäs varmaa olla vuosissa x12
-
-      if valid_number?(number2)
+      if valid_number?(loan_duration_months)
+        loan_duration_months = loan_duration_months * 12
         break
       else
         prompt("Hmm... that doesnt look like a valid input!")
