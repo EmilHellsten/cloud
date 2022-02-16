@@ -67,30 +67,30 @@ MSG
     prompt(operator_prompt) 
   operator = ''
   loop do
-    operator = gets.chomp
+  operator = gets.chomp
  if %w(1 2 3 4).include?(operator)
-else  prompt("Must choose 1-4")
+ else  prompt("Must choose 1-4")
  end
-  
+
   result = case operator
-    when '1'
+           when '1'
       number1.to_i + number2.to_i
-    when '2'
+           when '2'
       number1.to_i - number2.to_i
-    when'3'
+           when '3'
       number1.to_i * number2.to_i
-    when'4'
+           when '4'
       number1.to_f / number2.to_f
-  end
+           end
 
   prompt("#{operator_to_message(operator)} the two numbers!")
-  sleep(1.5) 
+  sleep(1.5)
   prompt("The result is #{result}")
 loop do
   prompt("Do you want to calculate again? Y for recalc.")
   answer = gets.chomp
   break unless answer.downcase == 'y'
 end
-#prompt("Thank you for using the calculator!")
-end
+  # prompt("Thank you for using the calculator!")
+  end
 end
