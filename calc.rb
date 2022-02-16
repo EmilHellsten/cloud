@@ -48,7 +48,7 @@ loop do
 
   number2 = ''
     loop do
-    prompt("Please input another number.")
+      prompt("Please input another number.")
       number2 = gets.chomp
 
       if valid_number?(number2)
@@ -63,7 +63,7 @@ loop do
   Input 3 for multiplication.
   Input 4 for division.
 MSG
-  #loop do
+    # loop do
     prompt(operator_prompt) 
   operator = ''
   loop do
