@@ -41,12 +41,13 @@ loop do
 
 # monthly interest
     loop do
-      prompt("Please enter the monthly interest for the loan in percentages.")
+      prompt("Please enter the monthly interest for the loan in percentages. Enter 10 for 10%, for example.")
       monthly_interest = gets.chomp #to_f 2 decimals?
 
         if monthly_interest.empty? || monthly_interest.to_f < 0
       prompt("Hmm... that doesnt look like a valid input! Pls enter a positive number")
     else
+        monthly_interest = monthly_interest.to_f / 100
       break
     end
   end
@@ -55,22 +56,24 @@ loop do
     loop do
       prompt("Please enter the length of the loan in years.")
       loan_duration_months = gets.chomp # to_i ? tää pitäs varmaa olla vuosissa x12
-      if valid_number?(loan_duration_months)
-        loan_duration_months = loan_duration_months * 12
-        break
-      else
-        prompt("Hmm... that doesnt look like a valid input!")
+       if loan_duration_months.empty? || monthly_interest.to_f < 0
+         prompt("Hmm... that doesnt look like a valid input!")
+         else
+       loan_duration_months = loan_duration_months.to_i * 12
+      break
       end
     end
 
 # formula here print statement
+  monthly_payment = loan_amount.to_f() *
+                    (monthly_interest /
+                    (1 - (1 + monthly_interest)**(-loan_duration_months)))
 
+  prompt("Your monthly payment is: $#{format('%.2f', monthly_payment)}")
 
 # recalculate?
-  loop do
-    prompt("Do you want to calculate again? Y for recalc.")
+  prompt("Do you want to calculate again? Y for recalc.")
     answer = gets.chomp
     break unless answer.downcase == 'y'
   end
 # outer loop ends
-end
