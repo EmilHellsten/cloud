@@ -22,58 +22,52 @@ loan_amount = ''
 monthly_interest = ''
 loan_duration_months = ''
 
-
 # Outer loop start
 loop do
-
-#  loan amount
+    # loan amount
     loop do
-      prompt("Please enter the total loan amount as an integer.")
-      loan_amount = gets.chomp #.to_i?
+    prompt("Please enter the total loan amount as an integer.")
+    loan_amount = gets.chomp
 
-      if loan_amount.empty? || loan_amount.to_f < 0
-      prompt("Hmm... that doesnt look like a valid input! Pls enter a positive number")
+    if loan_amount.empty? || loan_amount.to_f < 0
+    prompt("That doesn't look valid! Pls enter a positive number.")
     else
       break
     end
-  end
 
-
-# monthly interest
+    # monthly interest
     loop do
-      prompt("Please enter the monthly interest for the loan in percentages. Enter 10 for 10%, for example.")
-      monthly_interest = gets.chomp #to_f 2 decimals?
+      prompt("Enter monthly interest for loan in percentages. ex. 10 for 10%.")
+      monthly_interest = gets.chomp
 
-        if monthly_interest.empty? || monthly_interest.to_f < 0
-      prompt("Hmm... that doesnt look like a valid input! Pls enter a positive number")
+    if monthly_interest.empty? || monthly_interest.to_f < 0
+      prompt("That doesn't look valid! Pls enter a positive number")
     else
-        monthly_interest = monthly_interest.to_f / 100
-      break
-    end
-  end
+      monthly_interest = monthly_interest.to_f / 100
+     break
+     end
 
-# loan duration in months
+    # loan duration in months
     loop do
       prompt("Please enter the length of the loan in years.")
       loan_duration_months = gets.chomp # to_i ? tää pitäs varmaa olla vuosissa x12
-       if loan_duration_months.empty? || monthly_interest.to_f < 0
-         prompt("Hmm... that doesnt look like a valid input!")
-         else
-       loan_duration_months = loan_duration_months.to_i * 12
+      if loan_duration_months.empty? || monthly_interest.to_f < 0
+        prompt("Hmm... that doesnt look like a valid input!")
+      else
+        loan_duration_months = loan_duration_months.to_i * 12
       break
-      end
     end
 
-# formula here print statement
-  monthly_payment = loan_amount.to_f() *
-                    (monthly_interest /
-                    (1 - (1 + monthly_interest)**(-loan_duration_months)))
+    # formula here print statement
+    monthly_payment = loan_amount.to_f() * (monthly_interest / (1 - (1 + monthly_interest)**(-loan_duration_months)))
 
-  prompt("Your monthly payment is: $#{format('%.2f', monthly_payment)}")
+    prompt("Your monthly payment is: $#{format('%.2f', monthly_payment)}")
 
-# recalculate?
-  prompt("Do you want to calculate again? Y for recalc.")
+    # recalculate?
+    prompt("Do you want to calculate again? Y for recalc.")
     answer = gets.chomp
     break unless answer.downcase == 'y'
   end
 # outer loop ends
+end
+
