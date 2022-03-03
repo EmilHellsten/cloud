@@ -1,7 +1,7 @@
 VALID_CHOICES = %w(rock lizard spock scissors paper)
 
 #TO_DO_LIST: Typing the full word "rock" or "lizard" is tiring. Update the program so the user can type "r" for "rock," "p" for "paper," etc. Note that if you do bonus #1, you'll have two words that start with "s." How do you resolve that?
-
+#MAP input r/s/p/l/sp -> rock scissors ...
 #switched to symbols as keys... if key = string need =>
 win_conditions = {
   "rock" => ["lizard", "scissors"],
@@ -21,7 +21,7 @@ choice = ''
 #TÄÄ EI OIKEESTAAN TOIMI keep_playing = true
 
 #outer loop
-while human_score || computer_score < 3 #does not exit loop at >3 OISKO joku keep_playing = true ja break human || comp == 3
+while human_score < 3 && computer_score < 3 #does not exit loop at >3 OISKO joku keep_playing = true ja break human || comp == 3
   
   loop do
     prompt("Choose one: #{VALID_CHOICES.join(', ')}")
