@@ -18,9 +18,9 @@ choice = ''
 
 #contractions = {
  # "rock" => ["r", "ro", "roc"],
-  #"lizard" => ["l", "li", "liz","liza","lizar"],
-  #"spock" => ["sp","spo", "spoc"],
-  #"scissors" => ["sc","sci", "scis", "sciss", "scisso", "scissor"],
+  #"lizard" => ["l", "li", "liz", "liza", "lizar"],
+  #"spock" => ["sp", "spo", "spoc"],
+  #"scissors" => ["sc", "sci", "scis", "sciss", "scisso", "scissor"],
   #"paper" => ["p", "pa", "pap", "pape"]
 #}
 while human_score < 3 && computer_score < 3
@@ -30,22 +30,21 @@ while human_score < 3 && computer_score < 3
     choice = gets.chomp.downcase
    
     case choice
-      when choice == "r" || "ro" || "roc"
+      when "r", "ro", "roc"
         choice = "rock"
-      when choice == "l" || "li" || "liz" || "liza" || "lizar"
+      when "l", "li", "liz", "liza", "lizar"
         choice = "lizard"
-      when choice == "sp" || "spo" || "spoc"
+      when "sp", "spo", "spoc"
         choice = "spock"
-      when choice == "sc" || "sci" || "scis" || "sciss" || "scisso" || "scissor"
+      when "sc", "sci", "scis", "sciss", "scisso", "scissor"
         choice = "scissors"
-      when choice == "p" || "pa" || "pap" || "pape"
+      when "p", "pa", "pap", "pape"
         choice = "paper"
     end
     
-    
-    if VALID_CHOICES.include?(choice)
+  if VALID_CHOICES.include?(choice)
     break
-    else prompt("That's not valid.")
+  else prompt("That's not valid.")
     end
   end
 
